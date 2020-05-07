@@ -205,5 +205,60 @@ let tab = document.querySelectorAll('.info-header-tab'),
                 }
             }
         });
-        
+
+
+        // Calc var1
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+    restDays = document.querySelectorAll('.counter-block-input')[1],
+    place = document.getElementById('select'),
+    totalValue = document.getElementById('total'),
+    personsSum = 0,
+    daysSum = 0,
+    total = 0;
+
+totalValue.innerHTML = 0;
+persons.addEventListener('change', function(){
+    personsSum = +this.value;
+    total= personsSum *daysSum *4000;    
+    totalValue.innerHTML = total;
+
+});
+restDays.addEventListener('change', function(){
+    daysSum = +this.value;
+    total= personsSum *daysSum *4000; 
+    totalValue.innerHTML = total;
+
+});
+place.addEventListener('change', function(){
+   
+    if (restDays.value == '' || persons.value == '') {
+        totalValue.innerHTML = 0;
+    } else {
+        let a = total;
+    totalValue.innerHTML = a* this.options[this.selectedIndex].value;}
+});
+
+
+
+        //calc variant2
+
+      
+    //     let calcWrapp = document.querySelector('#price'),
+    //     people = calcWrapp.querySelectorAll('input')[0],
+    //     days = calcWrapp.querySelectorAll('input')[1],
+    //     base = calcWrapp.querySelector('select'),
+    //     total = calcWrapp.querySelector('#total'),
+    //     cost = 4000;
+    // // функция расчета стоимости
+    //     function calcCost () {
+    //         let result = people.value * days.value * base.value * cost;
+    //         total.textContent = result + '₽';
+    //     }
+    // // делегирование событий
+    // calcWrapp.addEventListener('input', (e) => {
+    //     if(e.target == people || e.target == days || e.target == base){
+    //         calcCost();
+    //     }
+    // });
 });
